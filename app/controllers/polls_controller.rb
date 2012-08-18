@@ -18,7 +18,7 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
-    return redirect_to root_url unless cookies[:"authenticated_#{@poll.pin}"]
+    flash[:error] = "You need a PIN to view that poll"; return redirect_to root_url unless cookies[:"authenticated_#{@poll.pin}"]
   end
 
   def join
