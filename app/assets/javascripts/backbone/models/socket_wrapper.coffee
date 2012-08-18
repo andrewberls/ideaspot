@@ -6,15 +6,20 @@ SocketWrapper = Backbone.Model.extend {
   connect: ->
     return if window.socket && socket.readyState == 1 # Already connected
 
-    url = "ws://#{@get('host')}:#{@get('port')}"
-    console.log "Connecting to #{url}"
+    url = "ws://#{@get('host')}:#{@get('port')}" # TODO: We only need one websocket server right?
+    console.log "Connecting to: #{url}"
 
     window.socket = new WebSocket(url)
     @set { connected : true }
 
     socket.onmessage = (msg) =>
+      # This is only receiving a single message - a MessageEvent Object
+      # Passed down directly from EM
+      console.log "socket_wrapper onmessage ->"
+      console.log msg
+
       try
-        response = JSON.parse(msg.data)
+        response = JSON.parse(msg.data) || { 'data' : "FAILURE" }
       catch ex
         @trigger('socket:parse_error', "Could not parse socket msg: #{msg.data}")
 
@@ -22,6 +27,7 @@ SocketWrapper = Backbone.Model.extend {
         console.log "Connection received"
         @trigger('socket:connect', response['count']);
       else
+        console.log "message received: #{response['data']}"
         @trigger('socket:message', response['data'])
 
     socket.onerror = (evt) ->

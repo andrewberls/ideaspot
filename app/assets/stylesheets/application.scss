@@ -31,24 +31,21 @@ body {
 
 .nicebox {
   @include border-radius;
+}
 
-  .nicebox-head,
-  .nicebox-body {
-    @include clearfix;
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
-    box-shadow: 0 1px 6px #BBB;
-    color: $light-text;
-    padding: 30px;
-  }
+.nicebox-head,
+.nicebox-body {
+  @include clearfix;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 1px 6px #BBB;
+  color: $light-text;
+  //padding: 30px;
+}
 
-  .nicebox-head {
-  }
-
-  .nicebox-body {
-    background-color: $light-gray;
-    padding: 30px;
-  }
+.nicebox-body {
+  background-color: $light-gray;
+  padding: 30px;
 }
 
 

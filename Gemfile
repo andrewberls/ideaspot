@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 gem 'eventmachine'
 gem 'em-websocket'
-gem 'em-hiredis'
+gem'em-http-request'
 gem 'redis'
 gem 'json'
 

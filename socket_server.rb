@@ -2,6 +2,7 @@
 
 require 'eventmachine'
 require 'em-websocket'
+require 'em-http-request'
 require 'json'
 
 @sockets = []
@@ -19,7 +20,8 @@ EventMachine.run do
     socket.onmessage do |msg|
       # Persist the message
       # TODO
-
+      #http = EventMachine::HttpRequest.new('/polls/<id>/comments/new').post(text: msg)
+      puts "msg: #{msg}"
       # Broadcast to connected sockets
       @sockets.each do |sock|
         sock.send( { :type => :Message, :data => msg }.to_json )

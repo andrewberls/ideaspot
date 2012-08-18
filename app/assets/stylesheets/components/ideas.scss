@@ -1,4 +1,13 @@
 .poll-description {
+  .nicebox-head {
+    padding: 25px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 5px;
+
+    .nicebox-head { padding: 10px; }
+  }
 }
 
 
@@ -14,17 +23,14 @@ section {
 // SIDEBAR + COMMENTS
 // ----------------------------------
 .sidebar,
-.ideas {
+#ideas {
   float: left;
 }
 
 .sidebar {
   @include border-box;
-  min-height: 500px;
-
   background-color: $gray-text;
   padding: 20px 0;
-  width: 300px;
 
   .btn {
     float: right;
@@ -66,15 +72,13 @@ section {
 
 // MAIN IDEA BOARD
 // ----------------------------------
-.ideas {
-  margin: 25px 0 0 25px;
+#ideas {
+  margin-top: 25px;
 }
 
 .idea {
   @extend .whitebox;
   float: left;
-  margin-right: 25px;
-  width: 350px;
 
   .idea-title {
     color: $light-text;
@@ -87,6 +91,11 @@ section {
       font-size: 1.3em;
       font-weight: bold;
     }
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 15px;
+    padding: 10px !important;
   }
 }
 
