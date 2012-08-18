@@ -4,19 +4,51 @@
 #= require_tree ./views
 #= require_tree ./routers
 
+sample_data = [
+  [
+    {
+    title: "Gio's"
+    votes : 2
+    }
+    {
+    title: "Rusty's"
+    votes : 1
+    }
+  ]
+  [
+    {
+    title: "Monadnock Sugarhouse"
+    votes : 1
+    }
+    {
+    title: "Aunt Jemima"
+    votes : 6
+    }
+    {
+    title: "The Maple Guys"
+    votes : 3
+    }
+  ]
+]
+
+
 window.Ideaspot =
   Models: {}
   Collections: {}
   Routers: {}
   Views: {}
+  get_poll_id: ->
+    location.pathname.replace(/polls\//, '').slice(1)
+
   init: ->
-    new Ideaspot.Routers.PollsRouter
-    Backbone.history.start()
-    console.log 'init done'
+    id = Ideaspot.get_poll_id()
+    # TODO replace stub with real code
+    ideas = new Ideaspot.Collections.IdeasCollection()
+    ideas.reset sample_data[Ideaspot.get_poll_id() - 1]
+    # poll = @polls.get(id)
 
-$(->
-  polls = {
+    @view = new Ideaspot.Views.Ideas.ShowCollection(collection: ideas, el: $("#ideas"))
+    @view.render()
 
-  }
-  Ideaspot.init(polls)
-)
+$ ->
+  Ideaspot.init()

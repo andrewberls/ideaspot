@@ -24,16 +24,7 @@ class Ideaspot.Routers.PollsRouter extends Backbone.Router
     console.log "show #{id}"
     # TODO replace stub with real code
     ideas = new Ideaspot.Collections.IdeasCollection()
-    ideas.reset [
-      {
-        title: "Gio's"
-        votes : 2
-      }
-      {
-        title: "Rusty's"
-        votes : 1
-      }
-    ]
+    ideas.reset sample_data[id - 1]
     window.debug = ideas
     # poll = @polls.get(id)
 
