@@ -37,3 +37,4 @@ SocketWrapper = Backbone.Model.extend {
       console.log "Disconnecting"
       window.socket.close()
 }
+

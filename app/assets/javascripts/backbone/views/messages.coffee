@@ -1,4 +1,4 @@
-MessageView = Backbone.View.extend {
+window.MessageView = Backbone.View.extend {
   template: _.template $('#template-socket-message').html()
 
   render: ->
@@ -6,7 +6,7 @@ MessageView = Backbone.View.extend {
     return @
 }
 
-MessageListView = Backbone.View.extend {
+window.MessageListView = Backbone.View.extend {
   template: _.template $('#template-socket-message-list').html()
 
   initialize: ->
