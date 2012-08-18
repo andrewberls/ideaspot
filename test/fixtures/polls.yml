@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pin: MyString
+  title: MyString
+
+two:
+  pin: MyString
+  title: MyString
