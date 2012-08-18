@@ -6,8 +6,6 @@
   }
 
   input:not([type="submit"]) {
-    @include border-radius;
-
     &:focus {
       outline: none;
     }

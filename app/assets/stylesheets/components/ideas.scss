@@ -1,0 +1,110 @@
+.poll-description {
+}
+
+
+.board {
+
+}
+
+section {
+  clear: both;
+  width: 100%;
+}
+
+// SIDEBAR + COMMENTS
+// ----------------------------------
+.sidebar,
+.ideas {
+  float: left;
+}
+
+.sidebar {
+  @include border-box;
+  min-height: 500px;
+
+  background-color: $gray-text;
+  padding: 20px 0;
+  width: 300px;
+
+  .btn {
+    float: right;
+  }
+
+  .add-comment,
+  .comment {
+    padding: 0 10px;
+  }
+
+  .add-comment {
+    // Form container
+    @include clearfix;
+    margin-bottom: 15px;
+  }
+
+  .comment {
+    color: #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+    padding: 10px 5px;
+
+    &:last-of-type {
+      border-bottom: 1px solid #E6E6E6;
+    }
+
+    .comment-name {
+      color: lighten($blue, 15);
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .comment-text {
+
+    }
+  }
+}
+
+
+
+// MAIN IDEA BOARD
+// ----------------------------------
+.ideas {
+  margin: 25px 0 0 25px;
+}
+
+.idea {
+  @extend .whitebox;
+  float: left;
+  margin-right: 25px;
+  width: 350px;
+
+  .idea-title {
+    color: $light-text;
+  }
+
+  .votes-container {
+    float: right;
+
+    .vote-count {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+  }
+}
+
+
+
+
+// ADD IDEA
+// ----------------------------------
+.add-idea {
+  padding: 45px 0;
+
+  label {
+    color: $gray-text;
+    font-size: 1.2em;
+  }
+
+  input {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+}
