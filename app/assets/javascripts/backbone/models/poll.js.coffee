@@ -7,3 +7,4 @@ class Ideaspot.Models.Poll extends Backbone.Model
 class Ideaspot.Collections.PollsCollection extends Backbone.Collection
   model: Ideaspot.Models.Poll
   url: '/polls'
+

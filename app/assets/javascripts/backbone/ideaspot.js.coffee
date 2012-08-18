@@ -9,3 +9,14 @@ window.Ideaspot =
   Collections: {}
   Routers: {}
   Views: {}
+  init: ->
+    new Ideaspot.Routers.PollsRouter
+    Backbone.history.start()
+    console.log 'init done'
+
+$(->
+  polls = {
+
+  }
+  Ideaspot.init(polls)
+)
