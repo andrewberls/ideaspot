@@ -106,8 +106,17 @@ section {
     float: right;
 
     .vote-count {
-      font-size: 1.3em;
+      font-size: 1.5em;
       font-weight: bold;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+
+    // VOTE-ARROWS
+    .vote-arrow {
+      margin-right: 10px;
+      float: left;
     }
   }
 
