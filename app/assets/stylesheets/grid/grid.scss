@@ -1,0 +1,38 @@
+//-- BASE GRID DEFINITIONS
+//------------------------------------
+
+//---------------------
+//-- 1100px grid
+//---------------------
+
+.container {
+  @include clearfix;
+  margin: 0 auto;
+  width: $container-width;
+}
+
+.row {
+  @include clearfix;
+  float: left;
+  margin-bottom: 0;
+
+  [class^="span-"] {
+    float: left;
+    margin-right: $gutter-width;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+}
+
+@for $i from 1 through $num-columns {
+  // 1-16. Ex: .span-5 { @include width(5) }
+  .span-#{$i} { @include width($i); }
+}
+
+@for $i from 1 through ($num-columns - 1) {
+  // 1-15. Ex: .offset-5 { @include offset(5) }
+  .offset-#{$i} { @include offset($i) }
+}

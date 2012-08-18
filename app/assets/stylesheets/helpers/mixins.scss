@@ -1,0 +1,70 @@
+@mixin clearfix {
+  // http://nicolasgallagher.com/micro-clearfix-hack/
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin border-radius($rad: 3px) {
+  -webkit-border-radius: $rad;
+     -moz-border-radius: $rad;
+          border-radius: $rad;
+}
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@mixin ease-out($time: 0.5s) {
+  -webkit-transition: all $time ease-out;
+     -moz-transition: all $time ease-out;
+       -o-transition: all $time ease-out;
+}
+
+@mixin box-shadow($horizOffset: 0px, $vertOffset: 0px, $blurDist: 0px, $spreadDist: 0px, $color: #000) {
+  -webkit-box-shadow: $horizOffset $vertOffset $blurDist $spreadDist $color;
+     -moz-box-shadow: $horizOffset $vertOffset $blurDist $spreadDist $color;
+          box-shadow: $horizOffset $vertOffset $blurDist $spreadDist $color;
+          // -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(strength=2, Direction=225, Color='#{$color}')";
+          //     filter: progid:DXImageTransform.Microsoft.Shadow(strength=2, direction=225, color='#{$color}');
+}
+
+@mixin inset-box-shadow($horizOffset: 0px, $vertOffset: 0px, $blurDist: 0px, $spreadDist: 0px, $color: #000) {
+  -webkit-box-shadow: inset $horizOffset $vertOffset $blurDist $spreadDist $color;
+     -moz-box-shadow: inset $horizOffset $vertOffset $blurDist $spreadDist $color;
+          box-shadow: inset $horizOffset $vertOffset $blurDist $spreadDist $color;
+          // -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(strength=2, Direction=225, Color='#{$color}')";
+          //     filter: progid:DXImageTransform.Microsoft.Shadow(strength=2, direction=225, color='#{$color}');
+}
+
+@mixin horizontal-gradient($startColor: #555, $endColor: #333) {
+  background-color: $endColor;
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image:    -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
+  background-image:     -ms-linear-gradient(left, $startColor, $endColor); // IE10
+  background-image:        -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image:      -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
+  background-image:         linear-gradient(left, $startColor, $endColor); // Standard
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startColor}, endColorstr='#{$endColor}'); // IE9 and down
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}')";
+}
+
+@mixin vertical-gradient($startColor: #555, $endColor: #333) {
+  background-color: $endColor;
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image:    -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+  background-image:     -ms-linear-gradient(top, $startColor, $endColor); // IE10
+  background-image:        -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image:      -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+  background-image:         linear-gradient(top, $startColor, $endColor); // Standard
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startColor}, endColorstr='#{$endColor}'); // IE9 and down
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}')";
+}

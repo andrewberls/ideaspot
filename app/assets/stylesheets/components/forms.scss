@@ -1,0 +1,20 @@
+form {
+  //@extend .whitebox;
+
+  label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  input:not([type="submit"]) {
+    @include border-box;
+    border: 1px solid $med-gray;
+    margin-bottom: 15px;
+    padding: 7px 5px;
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    float: right;
+  }
+}

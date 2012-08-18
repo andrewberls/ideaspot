@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+
+    <div class="span-16">
+      <h2>Ask a question</h2>
+
+    <%= form_for(@poll, html: {class: "new-poll-form"}) do |f| %>
+
+
+      <%= f.label :title %>
+      <span class="help-text">Describe your group!</span>
+      <%= f.text_field :title %>
+
+      <%= submit_tag "Ask", class: "btn btn-blue", id: "" %>
+
+    <% end %><!-- .new-group-form -->
+
+    </div>
+
+  </div>
+</div>

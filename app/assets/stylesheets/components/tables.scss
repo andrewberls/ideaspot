@@ -1,0 +1,63 @@
+table {
+  background-color: white;
+  border-collapse: separate;
+  text-align: left;
+  width: 100%;
+
+  thead th,
+  tbody td {
+    @include border-box;
+    border: 1px solid $med-gray;
+    border-right: 0;
+    padding: 8px;
+
+    &:last-child {
+      border-right: 1px solid $med-gray;
+    }
+  }
+
+  thead th {
+    font-weight: bold;
+  }
+
+  tbody td {
+    border-top: 0;
+  }
+
+  tr:nth-of-type(even) td {
+    // TODO: this probably shouldn't be a default option
+    background-color: $light-gray;
+  }
+
+
+  $radius: 3px;
+
+  // Top left
+  tr:first-child th:first-child {
+    -webkit-border-top-left-radius: $radius;
+        -moz-border-radius-topleft: $radius;
+            border-top-left-radius: $radius;
+  }
+
+  // Top right
+  tr:first-child th:last-child {
+    -webkit-border-top-right-radius: $radius;
+        -moz-border-radius-topright: $radius;
+            border-top-right-radius: $radius;
+  }
+
+  // Bottom left
+  tr:last-child td:first-child {
+    -webkit-border-bottom-left-radius: $radius;
+        -moz-border-radius-bottomleft: $radius;
+            border-bottom-left-radius: $radius;
+  }
+
+  // Bottom right
+  tr:last-child td:last-child {
+    -webkit-border-bottom-right-radius: $radius;
+        -moz-border-radius-bottomright: $radius;
+            border-bottom-right-radius: $radius;
+  }
+
+}

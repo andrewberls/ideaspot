@@ -1,0 +1,67 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+
+
+.row + .row {
+  margin-top: 45px;
+}
+
+.noise {
+  background-image: url('../img/noise.png');
+}
+
+header {
+  border-bottom: 1px solid lighten($med-gray, 5);
+  padding: 20px;
+
+  h1 {
+    font-weight: normal;
+  }
+}
+
+section {
+  padding: 40px 0;
+}
+
+.demo-gray {
+
+}
+
+.demo-white {
+  @include inset-box-shadow(0, 10px, 5px, -8px, lighten($med-gray, 5));
+  background-color: white;
+}
+
+.demo-dark {
+  background-color: #262626;
+  border-top: 10px solid $gray-text;
+  color: $light-text;
+  padding: 50px 0;
+  text-align: center;
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: lighten($gray-text, 25);
+
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+.nicebox-body {
+  padding: 30px 60px !important;
+
+  label {
+    margin-bottom: 10px;
+  }
+}
+
+
+.text-demo {
+  text-align: center;
+}
