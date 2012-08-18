@@ -5,6 +5,7 @@ class Ideaspot.Views.Ideas.ShowCollection extends Backbone.View
 
   initialize: ->
     @collection.on 'add', @addItem
+    @collection.on 'reset', @render
 
 
   addItem: (idea) =>
