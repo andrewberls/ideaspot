@@ -3,10 +3,9 @@ sendIfEnter = (textarea, evt) ->
     poll_id  = location.pathname.replace(/polls\//, '').slice(1)
     msg = $(textarea).val()
 
-    console.log "sendIfEnter id: #{poll_id}"
-    console.log "sendIfEnter msg: #{msg}"
-
-    window.socket.send poll_id + msg
+    # 'Hack'-athon indeed. Force 6 digits so we know how to slice the poll id.
+    padded_poll_id = ( poll_id + "xxxxxx" ).slice(0, 6)
+    window.socket.send("#{padded_poll_id}#{msg}")
     $(textarea).val('')
 
 setup = ->

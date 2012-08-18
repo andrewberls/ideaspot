@@ -6,6 +6,7 @@ class PollsController < ApplicationController
 
   def create
     @poll = Poll.new(params[:poll])
+    @poll.comments = []
 
     if @poll.save
       cookies[:"authenticated_#{@poll.pin}"] = true

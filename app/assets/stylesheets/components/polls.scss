@@ -21,11 +21,17 @@
 }
 
 #new-poll-form {
+  margin-top: 5em;
+
   input { height: 50px; }
 
   input:not([type="submit"]) { font-size: 1.6em; }
 
-  .btn { font-size: 1.1em; }
+  .btn { font-size: 1.2em; }
+
+  @media(max-width: 630px) {
+    margin-top: 20px;
+  }
 }
 
 #join-poll-form {
@@ -36,4 +42,6 @@
   }
 
   input:not([type="submit"]) { font-size: 1.3em; }
+
+  .btn { font-size: 1.1em; }
 }

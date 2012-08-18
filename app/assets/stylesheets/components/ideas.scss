@@ -1,12 +1,30 @@
-.poll-description {
+.poll-title {
   .nicebox-head {
     padding: 25px;
+  }
+
+  h1 {
+    float: left;
+  }
+
+  .poll-pin {
+    float: right;
+    margin-top: 10px;
+    font-size: 2.2em;
+
+    .blue {
+      font-weight: bold;
+    }
   }
 
   @media (max-width: 767px) {
     padding: 5px;
 
     .nicebox-head { padding: 10px; }
+
+    .poll-pin {
+      float: none;
+    }
   }
 }
 
@@ -78,7 +96,7 @@ section {
 
 .idea {
   @extend .whitebox;
-  float: left;
+  //float: left;
 
   .idea-title {
     color: $light-text;
@@ -96,6 +114,7 @@ section {
   @media (max-width: 767px) {
     margin-bottom: 15px;
     padding: 10px !important;
+    width: 100% !important;
   }
 }
 

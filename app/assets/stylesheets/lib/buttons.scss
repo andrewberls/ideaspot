@@ -43,7 +43,7 @@ input[type="submit"] {
 // ICONS
 //-----------------------------------
 [class^="icon-"] {
-  background-image: url('../img/glyphicons-halflings.png');
+  background-image: url('/images/glyphicons-halflings.png');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   display: inline-block;
@@ -58,7 +58,7 @@ input[type="submit"] {
 }
 
 .icon-white {
-  background-image: url('../img/glyphicons-halflings-white.png');
+  background-image: url('/images/glyphicons-halflings-white.png');
 }
 
 .disabled > [class^="icon-"],

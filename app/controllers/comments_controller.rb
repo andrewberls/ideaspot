@@ -1,19 +1,17 @@
 class CommentsController < ApplicationController
-  def new
-
+  def create
+    @poll = Poll.find(params[:poll_id])
+    @comment = @poll.comments.build(text: params[:text])
+    @comment.save
   end
 
   def index
-    #@poll = Poll.find(params[:poll_id])
+    @poll = Poll.find(params[:poll_id])
     #return @poll.comments.to_json # TODO
 
     respond_to do |format|
       format.json do
-
-        return render json: [
-          { text: "Hello from json!" },
-          { text: "I LIKE SHOUTING ON THE INTERNET" }
-        ]
+        return render json: @poll.comments
       end
     end
   end

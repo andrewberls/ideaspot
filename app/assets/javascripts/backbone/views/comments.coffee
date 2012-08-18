@@ -16,7 +16,7 @@ window.CommentListView = Backbone.View.extend {
     @loadComments()
 
   loadComments: () ->
-    $('.sidebar .comments').html('')
+    $('.sidebar .comments').empty()
 
     $.ajax {
       url: "/polls/#{@poll_id}/comments.json",
@@ -29,8 +29,9 @@ window.CommentListView = Backbone.View.extend {
           """
     }
 
-  onMessage: (poll_id, msg) ->
+  onMessage: (msg) ->
     console.log "onMessage: #{msg}"
+
     @data.push { message: msg }
     @render()
 

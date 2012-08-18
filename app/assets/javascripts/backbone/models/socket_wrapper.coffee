@@ -13,10 +13,7 @@ SocketWrapper = Backbone.Model.extend {
     @set { connected : true }
 
     socket.onmessage = (msg) =>
-      # This is only receiving a single message - a MessageEvent Object
-      # Passed down directly from EM
-      console.log "socket_wrapper onmessage ->"
-      console.log msg
+      # This is only receiving a single MessageEvent obj directly from EM
 
       try
         response = JSON.parse(msg.data) || { 'data' : "FAILURE" }
@@ -27,7 +24,6 @@ SocketWrapper = Backbone.Model.extend {
         console.log "Connection received"
         @trigger('socket:connect', response['count']);
       else
-        console.log "message received: #{response['data']}"
         @trigger('socket:message', response['data'])
 
     socket.onerror = (evt) ->

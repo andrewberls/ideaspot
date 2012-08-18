@@ -2,7 +2,6 @@
 #= require_tree ./templates
 #= require_tree ./models
 #= require_tree ./views
-#= require_tree ./routers
 
 sample_data = [
   [
@@ -31,6 +30,9 @@ sample_data = [
   ]
 ]
 
+clearFormValues = ->
+  $("#input-idea-username").val('')
+  $("#input-idea-title").val('')
 
 window.Ideaspot =
   Models: {}
@@ -49,6 +51,23 @@ window.Ideaspot =
 
     @view = new Ideaspot.Views.Ideas.ShowCollection(collection: ideas, el: $("#ideas"))
     @view.render()
+    $('#form-new-idea').submit ->
+      username = $("#input-idea-username").val()
+      title = $("#input-idea-title").val()
+      newIdea = new Ideaspot.Models.Idea {
+        title: title
+        votes: 0
+      }
+      newIdea.save({}, {
+        success: (model, response) ->
+          console.log "Success! Response:"
+          console.log response
+          clearFormValues()
+          ideas.add response
+      }, error: (model, error) ->
+          console.log "Error:"
+          console.log error
+      )
 
 $ ->
   Ideaspot.init()
