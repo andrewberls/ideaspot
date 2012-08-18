@@ -1,7 +1,5 @@
 <div class="container">
-  <div class="row">
-
-    <div class="landing-container">
+    <div class="row">
 
       <%= form_for(@poll, html: {id: "new-poll-form"}) do |f| %>
         <h2>Ask a question!</h2>
@@ -11,19 +9,28 @@
         </div>
 
         <div class="span-2">
-          <%= submit_tag raw("Ask! &raquo;"), class: "btn btn-blue", id: "submit-poll" %>
+          <%= submit_tag raw("Ask! &raquo;"), class: "btn btn-green", id: "submit-poll" %>
         </div>
       <% end %>
+    </div>
 
-      <div class="separator">
-        <h3>or</h3>
+    <div class="row">
+      <div class="span-16">
+
+        <div class="separator">
+          <h3>or</h3>
+        </div>
+
       </div>
+    </div>
 
+    <div class="row">
+      <div class="span-10 offset-3">
 
-      <%= form_tag '#', html: {id: "join-poll-form"} do %>
+      <%= form_tag '#', id: "join-poll-form" do %>
         <h2>Join a poll</h2>
 
-        <div class="span-8 offset-3">
+        <div class="span-8">
           <%= text_field_tag :pin, nil, placeholder: "Enter a pin number" %>
         </div>
 
@@ -32,7 +39,6 @@
         </div>
       <% end %>
 
-    </div><!-- .landing-container -->
-
-  </div>
+      </div>
+    </div>
 </div>

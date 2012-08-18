@@ -1,28 +1,12 @@
-.landing-container {
-  height: 600px;
-  margin-top: -300px;
-  position: fixed;
-  top: 50%;
-  z-index: 100;
-}
-
 #new-poll-form,
 #join-poll-form {
-  @include clearfix;
-
   h2 {
     color: lighten($gray-text, 25);
     margin-bottom: 25px;
   }
 
-  input {
-    @include border-box;
-    height: 50px;
-  }
-
   input:not([type="submit"]) {
     @include border-radius;
-    font-size: 1.6em;
 
     &:focus {
       outline: none;
@@ -30,63 +14,28 @@
   }
 
   .btn {
-    font-size: 1.1em;
     width: 100%;
   }
-}
 
-
-.separator {
-  text-align: center;
-
-  h3 {
-    background: transparent;
-    color: lighten($light-text, 25);
-    margin: 5em 0;
-    position: relative;
-
-    &:before,
-    &:after {
-      content: "";
-      border-bottom: 1px solid $med-gray;
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      width: 500px;
-    }
-
-    &:before { left: 0; }
-
-    &:after { right: 0; }
+  @media (max-width: 630px) {
+    text-align: center;
   }
 }
 
+#new-poll-form {
+  input { height: 50px; }
 
+  input:not([type="submit"]) { font-size: 1.6em; }
 
+  .btn { font-size: 1.1em; }
+}
 
-// #new-poll-form {
-//   @include clearfix;
+#join-poll-form {
+  text-align: center;
 
-//   h2 {
-//     color: lighten($gray-text, 25);
-//     margin-bottom: 25px;
-//   }
+  input {
+    height: 45px;
+  }
 
-//   input:not([type="submit"]) {
-//     background: transparent;
-//     border: none;
-//     border-bottom: 1px solid $med-gray;
-//     font-size: 2.3em;
-
-//     &:focus {
-//       outline: none;
-//     }
-//   }
-
-//   .btn {
-//     font-size: 1.1em;
-//     margin-top: 10px;
-//     width: 95%;
-//   }
-// }
-
+  input:not([type="submit"]) { font-size: 1.3em; }
+}
