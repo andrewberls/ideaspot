@@ -31,6 +31,9 @@ sample_data = [
   ]
 ]
 
+clearFormValues = ->
+  $("#input-idea-username").val('')
+  $("#input-idea-title").val('')
 
 window.Ideaspot =
   Models: {}
@@ -56,14 +59,15 @@ window.Ideaspot =
         title: title
         votes: 0
       }
-      console.log "newIdea"
-      console.log newIdea
-      newIdea.save(
+      newIdea.save({}, {
         success: (model, response) ->
-          console.log "model"
-          console.log model
-          console.log "response"
+          console.log "Success! Response:"
           console.log response
+          clearFormValues()
+          ideas.add response
+      }, error: (model, error) ->
+          console.log "Error:"
+          console.log error
       )
 
 $ ->
