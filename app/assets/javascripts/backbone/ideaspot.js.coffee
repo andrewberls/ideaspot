@@ -49,6 +49,22 @@ window.Ideaspot =
 
     @view = new Ideaspot.Views.Ideas.ShowCollection(collection: ideas, el: $("#ideas"))
     @view.render()
+    $('#form-new-idea').submit ->
+      username = $("#input-idea-username").val()
+      title = $("#input-idea-title").val()
+      newIdea = new Ideaspot.Models.Idea {
+        title: title
+        votes: 0
+      }
+      console.log "newIdea"
+      console.log newIdea
+      newIdea.save(
+        success: (model, response) ->
+          console.log "model"
+          console.log model
+          console.log "response"
+          console.log response
+      )
 
 $ ->
   Ideaspot.init()
