@@ -5,11 +5,6 @@ class Poll < ActiveRecord::Base
 
   has_many :comments
 
-  def to_param
-    "#{self.id}-#{self.public_id}"
-  end
-
-
   def generate_pin
     digest_string = self.id.to_s << Time.now.to_i.to_s
     self.pin = Digest::MD5.hexdigest(digest_string)[0..3]
