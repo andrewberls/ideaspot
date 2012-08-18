@@ -1,9 +1,10 @@
 Ideaspot::Application.routes.draw do
-  get "polls/index"
 
-  resources :polls
+  resources :polls do
+    resources :comments
+  end
+
   resources :ideas
-  resources :comments
 
   root :to => 'polls#new'
 end

@@ -1,3 +1,6 @@
+# WE PROBABLY WONT NEED THIS
+
+
 window.ConnectionView = Backbone.View.extend {
   template: _.template $("#template-socket-connection").html()
 
