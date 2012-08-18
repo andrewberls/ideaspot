@@ -1,21 +1,38 @@
 <div class="container">
   <div class="row">
 
-    <div class="span-16">
-      <h2>Ask a question</h2>
+    <div class="landing-container">
 
-    <%= form_for(@poll, html: {class: "new-poll-form"}) do |f| %>
+      <%= form_for(@poll, html: {id: "new-poll-form"}) do |f| %>
+        <h2>Ask a question!</h2>
+
+        <div class="span-14">
+          <%= f.text_field :title, autofocus: "autofocus", placeholder: "Where should we go to dinner?" %>
+        </div>
+
+        <div class="span-2">
+          <%= submit_tag raw("Ask! &raquo;"), class: "btn btn-blue", id: "submit-poll" %>
+        </div>
+      <% end %>
+
+      <div class="separator">
+        <h3>or</h3>
+      </div>
 
 
-      <%= f.label :title %>
-      <span class="help-text">Describe your group!</span>
-      <%= f.text_field :title %>
+      <%= form_tag '#', html: {id: "join-poll-form"} do %>
+        <h2>Join a poll</h2>
 
-      <%= submit_tag "Ask", class: "btn btn-blue", id: "" %>
+        <div class="span-8 offset-3">
+          <%= text_field_tag :pin, nil, placeholder: "Enter a pin number" %>
+        </div>
 
-    <% end %><!-- .new-group-form -->
+        <div class="span-2">
+          <%= submit_tag raw("Join &raquo;"), class: "btn btn-blue", id: "join-poll" %>
+        </div>
+      <% end %>
 
-    </div>
+    </div><!-- .landing-container -->
 
   </div>
 </div>
