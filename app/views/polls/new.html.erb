@@ -28,7 +28,7 @@
       <div class="span-10 offset-3">
 
       <%= form_tag join_poll_path, id: "join-poll-form" do %>
-        <h2>Join a poll</h2>
+        <h2><%= flash[:error].present? ? content_tag(:span, flash[:error], class: 'error') : "Join a poll" %></h2>
 
         <div class="span-8">
           <%= text_field_tag :pin, nil, placeholder: "Enter a pin number" %>
