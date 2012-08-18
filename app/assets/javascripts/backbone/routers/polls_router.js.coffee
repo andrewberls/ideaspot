@@ -23,10 +23,23 @@ class Ideaspot.Routers.PollsRouter extends Backbone.Router
   show: (id) ->
     console.log "show #{id}"
     # TODO replace stub with real code
+    ideas = new Ideaspot.Collections.IdeasCollection()
+    ideas.reset [
+      {
+        title: "Gio's"
+        votes : 2
+      }
+      {
+        title: "Rusty's"
+        votes : 1
+      }
+    ]
+    window.debug = ideas
     # poll = @polls.get(id)
 
-    @view = new Ideaspot.Views.Polls.ShowView(model: poll)
-    $("#polls").html(@view.render().el)
+    @view = new Ideaspot.Views.Ideas.ShowCollection(collection: ideas, el: $("#ideas"))
+#    $("#ideas").html(@view.render().el)
+    @view.render()
 
   edit: (id) ->
     console.log "edit #{id}"
