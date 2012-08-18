@@ -1,8 +1,11 @@
+<% provide(:title, "Poll: #{@poll.title}") %>
 
-<header class="poll-description nicebox">
+<header class="poll-title nicebox">
   <div class="nicebox-head">
-    <h1>Where should we go out to dinner?</h1>
+    <h1><%= @poll.title %></h1>
+    <span class="poll-pin">Pin: <span class="blue">1234</span></span>
   </div>
+
 </header>
 
 
@@ -15,6 +18,7 @@
         <input type="text" id="comment-input" placeholder="Add a comment">
         <a href="#" class="btn btn-blue">Send</a>
       </div>
+
 
       <div class="comments">
 

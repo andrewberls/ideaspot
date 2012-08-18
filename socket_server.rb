@@ -20,11 +20,17 @@ EventMachine.run do
     socket.onmessage do |msg|
       # Persist the message
       # TODO
-      #http = EventMachine::HttpRequest.new('/polls/<id>/comments/new').post(text: msg)
-      puts "msg: #{msg}"
+      poll_id = msg[0..5].gsub('x', '')
+      text = msg[6..-1]
+
+      http = EventMachine::HttpRequest.new("http://localhost:3000/polls/#{poll_id}/comments/").post :body => { text: text }
+
+      puts "server id: #{poll_id}"
+      puts "server text: #{text}"
+
       # Broadcast to connected sockets
       @sockets.each do |sock|
-        sock.send( { :type => :Message, :data => msg }.to_json )
+        sock.send( { :type => :Message, :data => text }.to_json )
       end
     end
 

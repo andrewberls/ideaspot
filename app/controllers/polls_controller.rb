@@ -5,6 +5,7 @@ class PollsController < ApplicationController
 
   def create
     @poll = Poll.new(params[:poll])
+    @poll.comments = []
 
     if @poll.save
       return redirect_to @poll
