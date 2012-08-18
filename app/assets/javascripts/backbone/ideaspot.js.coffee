@@ -40,7 +40,7 @@ window.Ideaspot =
   Routers: {}
   Views: {}
   get_poll_id: ->
-    location.pathname.replace(/polls\//, '').slice(1)
+    location.pathname.replace(/polls\//, '').slice(1).replace(/[^0-9]/g, '')
 
   init: ->
     id = Ideaspot.get_poll_id()
@@ -60,7 +60,7 @@ window.Ideaspot =
         title: title
         votes: 0
       }
-      newIdea.save({}, {
+      newIdea.save({ poll_id: Ideaspot.get_poll_id() }, {
         success: (model, response) ->
           console.log "Success! Response:"
           console.log response
