@@ -1,4 +1,5 @@
 class PollsController < ApplicationController
+
   def new
     @poll = Poll.new
   end
@@ -13,4 +14,14 @@ class PollsController < ApplicationController
       return render :new
     end
   end
+
+  def show
+    @poll = Poll.find(params[:id])
+  end
+
+  def destroy
+    @poll = Poll.find(params[:id])
+    @poll.destroy!
+  end
+
 end
