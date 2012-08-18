@@ -96,7 +96,7 @@ section {
 
 .idea {
   @extend .whitebox;
-  //float: left;
+  margin-bottom: 15px;
 
   .idea-title {
     color: $light-text;

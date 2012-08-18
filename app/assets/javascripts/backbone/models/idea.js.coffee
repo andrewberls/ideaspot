@@ -8,4 +8,6 @@ class Ideaspot.Models.Idea extends Backbone.Model
 
 class Ideaspot.Collections.IdeasCollection extends Backbone.Collection
   model: Ideaspot.Models.Idea
-  url: '/ideas'
+
+  url: ->
+    "/polls/#{Ideaspot.get_poll_id()}/ideas"

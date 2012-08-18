@@ -3,32 +3,32 @@
 #= require_tree ./models
 #= require_tree ./views
 
-sample_data = [
-  [
-    {
-    title: "Gio's"
-    votes : 2
-    }
-    {
-    title: "Rusty's"
-    votes : 1
-    }
-  ]
-  [
-    {
-    title: "Monadnock Sugarhouse"
-    votes : 1
-    }
-    {
-    title: "Aunt Jemima"
-    votes : 6
-    }
-    {
-    title: "The Maple Guys"
-    votes : 3
-    }
-  ]
-]
+# sample_data = [
+#   [
+#     {
+#     title: "Gio's"
+#     votes : 2
+#     }
+#     {
+#     title: "Rusty's"
+#     votes : 1
+#     }
+#   ]
+#   [
+#     {
+#     title: "Monadnock Sugarhouse"
+#     votes : 1
+#     }
+#     {
+#     title: "Aunt Jemima"
+#     votes : 6
+#     }
+#     {
+#     title: "The Maple Guys"
+#     votes : 3
+#     }
+#   ]
+# ]
 
 clearFormValues = ->
   $("#input-idea-username").val('')
@@ -46,11 +46,13 @@ window.Ideaspot =
     id = Ideaspot.get_poll_id()
     # TODO replace stub with real code
     ideas = new Ideaspot.Collections.IdeasCollection()
-    ideas.reset sample_data[Ideaspot.get_poll_id() - 1]
+    ideas.fetch()
+    # ideas.reset sample_data[Ideaspot.get_poll_id() - 1]
     # poll = @polls.get(id)
 
     @view = new Ideaspot.Views.Ideas.ShowCollection(collection: ideas, el: $("#ideas"))
     @view.render()
+
     $('#form-new-idea').submit ->
       username = $("#input-idea-username").val()
       title = $("#input-idea-title").val()

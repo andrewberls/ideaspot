@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
 
   def index
     @poll = Poll.find(params[:poll_id])
-    #return @poll.comments.to_json # TODO
 
     respond_to do |format|
       format.json do
@@ -15,4 +14,5 @@ class CommentsController < ApplicationController
       end
     end
   end
+
 end

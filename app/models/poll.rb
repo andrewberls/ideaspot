@@ -3,6 +3,7 @@ class Poll < ActiveRecord::Base
   before_create :generate_pin
 
   has_many :comments
+  has_many :ideas
 
   def generate_pin
     digest_string = self.id.to_s << Time.now.to_i.to_s
