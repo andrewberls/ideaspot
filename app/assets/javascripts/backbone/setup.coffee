@@ -11,6 +11,8 @@ sendIfEnter = (textarea, evt) ->
 setup = ->
   socket_wrapper = new SocketWrapper({ host : 'localhost', port : 8080 })
 
+  # The connection view can be used to show information about the connection status.
+  # For now, I'm just leaving it around because it's required for initialization
   connection_view = new ConnectionView { model: socket_wrapper }
   #$('#connect').append connection_view.$el
 

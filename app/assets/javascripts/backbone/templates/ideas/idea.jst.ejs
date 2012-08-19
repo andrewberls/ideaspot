@@ -1,12 +1,19 @@
 <div class="span3 idea">
-  <h3 class="idea-title"><%= "" + id + title %></h3>
+  <h3 class="idea-title"><%= title %></h3>
   <div class="votes-container">
-    <% if (Ideaspot.hasVotedOn(id)) { print('<a href-="#" class="btn btn-green vote-arrow no-text" onclick="javascript:Ideaspot.withdrawVote(' + id + ');">
-      <i class="icon-white icon-arrow-up"></i>
-    </a>'); } else { print('<a href-="#" class="btn vote-arrow no-text disabled">
-      <i class="icon-arrow-up"></i>
-    </a>');} %>
-
+    <%
+      if (Ideaspot.hasVotedOn(id)) {
+        print("
+          <a href='#' class='btn btn-green vote-arrow no-text' onclick='javascript:Ideaspot.withdrawVote(" + id + ");'>
+            <i class='icon-white icon-arrow-up'></i>
+          </a>")
+      } else {
+        print("
+          <a href='#' class='btn vote-arrow no-text disabled'>
+            <i class='icon-arrow-up'></i>
+          </a>")
+      }
+    %>
 
     <span class="vote-count"><%= votes %></span>
   </div>
