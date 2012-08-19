@@ -11,8 +11,7 @@
 @import "components/ideas";
 
 
-//-- GENERIC
-//------------------------------------
+
 body {
   background-color: $light-gray;
   color: $gray-text;
@@ -40,76 +39,12 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.18);
   box-shadow: 0 1px 6px #BBB;
   color: $light-text;
-  //padding: 30px;
 }
 
 .nicebox-body {
   background-color: $light-gray;
   padding: 30px;
 }
-
-.blue {
-  color: $blue;
-}
-
-.error {
-  color: red;
-}
-
-
-//-- BLOCKQUOTES
-//------------------------------------
-blockquote {
-  @include border-box;
-  border-left: 6px solid lighten($blue, 10);
-  font-size: 1.1em;
-  line-height: 1.4;
-  padding-left: 20px;
-
-  p {
-    margin-bottom: 15px;
-
-    &:first-of-type:before,
-    &:last-of-type:after {
-      content: '"';
-    }
-  }
-
-  .source {
-    font-size: 0.9em;
-    font-weight: bold;
-
-    &:before {
-      content: "- ";
-    }
-  }
-}
-
-
-//-- CODE
-//------------------------------------
-code, pre {
-  @include border-radius;
-  background-color: $light-gray;
-  border: 1px solid $med-gray;
-  font-family: $codeFontFamily;
-}
-
-code {
-  padding: 2px 4px;
-}
-
-pre {
-  @include border-box;
-  margin: 15px 0;
-  padding: 5px 0;
-}
-
-
-
-
-
-
 
 .separator {
   text-align: center;
@@ -138,4 +73,12 @@ pre {
       &:after { right: 0; }
     }
   }
+}
+
+.blue {
+  color: $blue;
+}
+
+.error {
+  color: red;
 }

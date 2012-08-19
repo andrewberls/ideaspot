@@ -6,18 +6,19 @@ window.CommentView = Backbone.View.extend {
     return @
 }
 
+
 window.CommentListView = Backbone.View.extend {
   template: _.template $('#template-comment-list').html()
 
   initialize: ->
-    @poll_id  = location.pathname.replace(/polls\//, '').slice(1)
+    @poll_id  = Ideaspot.get_poll_id()
     @model.on('socket:message', @onMessage, @)
-    @data = []
     @loadComments()
 
   loadComments: () ->
     $('.sidebar .comments').empty()
 
+    # TODO: Make this more Backbone-y
     $.ajax {
       url: "/polls/#{@poll_id}/comments.json",
       success: (json) =>
@@ -30,15 +31,9 @@ window.CommentListView = Backbone.View.extend {
     }
 
   onMessage: (msg) ->
-    console.log "onMessage: #{msg}"
-
-    @data.push { message: msg }
     @render()
 
   render: ->
     @loadComments()
     return @
 }
-
-
-#  <p class='comment-name'>#{comment.name}</p>

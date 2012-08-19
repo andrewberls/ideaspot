@@ -20,7 +20,9 @@
   @media (max-width: 767px) {
     padding: 5px;
 
-    .nicebox-head { padding: 10px; }
+    .nicebox-head {
+      padding: 10px;
+    }
 
     .poll-pin {
       float: none;
@@ -48,6 +50,8 @@ section {
 .sidebar {
   @include border-box;
   background-color: $gray-text;
+  max-height: 500px;
+  overflow: auto;
   padding: 20px 0;
 
   .btn {
@@ -112,8 +116,6 @@ section {
       margin-top: 5px;
     }
 
-
-    // VOTE-ARROWS
     .vote-arrow {
       margin-right: 10px;
       float: left;
