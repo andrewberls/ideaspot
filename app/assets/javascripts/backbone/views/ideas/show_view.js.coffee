@@ -5,5 +5,4 @@ class Ideaspot.Views.Ideas.ShowView extends Backbone.View
 
   render: ->
     $(@el).html(@template(@model.toJSON()))
-    #    return this
     return @template(@model.toJSON())

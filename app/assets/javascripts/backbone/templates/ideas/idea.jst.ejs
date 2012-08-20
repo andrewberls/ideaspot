@@ -1,15 +1,16 @@
 <div class="span3 idea">
   <h3 class="idea-title"><%= title %></h3>
   <div class="votes-container">
+    <!-- TODO: BETTER CLICK BINDING + TOGGLE BTN STATE -->
     <%
-      if (Ideaspot.hasVotedOn(id)) {
+      if (Ideaspot.User.hasVotedOn(id)) {
         print("
-          <a href='#' class='btn btn-green vote-arrow no-text' onclick='javascript:Ideaspot.withdrawVote(" + id + ");'>
+          <a href='#' class='btn btn-green vote-arrow no-text' onclick='javascript:Ideaspot.User.withdrawVote(" + id + ");'>
             <i class='icon-white icon-arrow-up'></i>
           </a>")
       } else {
         print("
-          <a href='#' class='btn vote-arrow no-text disabled'>
+          <a href='#' class='btn vote-arrow no-text disabled' onclick='javascript:Ideaspot.User.vote(" + id + ");'>
             <i class='icon-arrow-up'></i>
           </a>")
       }
