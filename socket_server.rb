@@ -1,5 +1,25 @@
 #! /usr/bin/ruby
 
+
+# TODO: Unify the interface so that both comments and ideas can be in real time
+# Instead of sending actual data, let Backbone models handle that, and instead
+# act as an hub server for all the clients - take in { type, id }, and broadcast
+# a create_or_update message to connected clients
+#
+#
+# http://stackoverflow.com/questions/8542318/eventmachine-in-rails-where-to-put-run-loop
+#
+#
+# http://stackoverflow.com/questions/10218222/em-websocket-gem-with-ruby-on-rails
+# https://gist.github.com/2416740
+# https://gist.github.com/ffaf2a8046b795d94ba0
+#
+#
+# ws.onmessage { |msg|
+#   msg = JSON.parse(msg)
+# }
+#
+
 require 'eventmachine'
 require 'em-websocket'
 require 'em-http-request'
@@ -20,6 +40,12 @@ EventMachine.run do
     end
 
     socket.onmessage do |msg|
+      # TODO TAKE IN JSON: { type, id }
+      # The HttpRequest call (and entire gem) can be removed -
+      # Backbone will now take care of saving.
+
+
+
       # Persist the message
       # The poll id is padded with junk to 6 digits,
       # and passed in concatenated with the actual message

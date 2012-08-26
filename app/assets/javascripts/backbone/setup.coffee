@@ -1,3 +1,10 @@
+# TODO: Hook comments up to Backbone models and let them take care of saving.
+# All we have to is pass an event type and object id up to the hub server
+# We need to somehow grab the SQL id. Returned by Backbone?
+# Ex:
+# msg = JSON.stringify({ type: 'comment', id: <id> })
+# window.socket.send( msg )
+
 sendIfEnter = (textarea, evt) ->
   if window.socket && evt.keyCode == 13
     poll_id  = location.pathname.replace(/polls\//, '').slice(1)
